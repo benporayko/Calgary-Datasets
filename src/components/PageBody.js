@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import IncidentSearch from "./IncidentSearch";
 
 import "../css/PageBody.css";
+import IncidentResults from "./IncidentResults";
 
 function PageBody() {
   const [selected, setSelected] = useState("none");
+
+  // for traffic incidents
+  const [quadrant, setQuadrant] = useState("");
 
   const trafficIncidentsClickHandler = () => {
       setSelected("incidents");
@@ -22,6 +26,10 @@ function PageBody() {
   const buildingPermitsClickHandler = () => {
     setSelected("permits");
   };
+
+  const changeQuadrantHandler = (quadrant) => {
+      setQuadrant(quadrant);
+  }
 
   return (
     <div>
@@ -69,13 +77,19 @@ function PageBody() {
           <h1>Set Search Parameters</h1>
           <div>
             {
-              selected === "incidents" ? <IncidentSearch /> : 
+              selected === "incidents" ? <IncidentSearch 
+              onChangeQuadrant={changeQuadrantHandler}/> : 
               "Not yet implemented"
             }
           </div>
         </div>
         <div className="column">
           <h1>Search Results</h1>
+            {
+              selected === "incidents" ? <IncidentResults
+              quadrant={quadrant}/> :
+              "Not yet implemented"
+            }
         </div>
       </div>
     </div>

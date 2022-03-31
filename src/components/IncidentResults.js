@@ -1,6 +1,6 @@
 import React from "react";
 
-function IncidentResults() {
+function IncidentResults(props) {
     return(
         <div>
             

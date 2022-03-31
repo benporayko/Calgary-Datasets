@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-function IncidentSearch () {
+function IncidentSearch (props) {
 
     const quadrantHandler = (event) => {
         // TODO: load traffic incident data into an array and search based on select quadrant
         console.log(event.target.value);
+        props.onChangeQuadrant(event.target.value);
     }
 
     return (
