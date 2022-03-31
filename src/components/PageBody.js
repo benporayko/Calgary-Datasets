@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import IncidentSearch from "./IncidentSearch";
+
 import "../css/PageBody.css";
 
 function PageBody() {
@@ -65,6 +67,12 @@ function PageBody() {
         </div>
         <div className="column">
           <h1>Set Search Parameters</h1>
+          <div>
+            {
+              selected === "incidents" ? <IncidentSearch /> : 
+              "Not yet implemented"
+            }
+          </div>
         </div>
         <div className="column">
           <h1>Search Results</h1>
